@@ -1,0 +1,138 @@
+{
+    "title": "A Behavior Tree",
+    "description": "",
+    "root": "84acc997-c11b-466b-9991-503060ea2155",
+    "display": {
+        "camera_x": 1024.5,
+        "camera_y": 504,
+        "camera_z": 1,
+        "x": -416,
+        "y": 0
+    },
+    "properties": {},
+    "nodes": {
+        "299b246a-a4fa-4f7f-8c5f-e6d84bb885be": {
+            "id": "299b246a-a4fa-4f7f-8c5f-e6d84bb885be",
+            "name": "AttackAction",
+            "title": "AttackAction",
+            "description": "攻击动作",
+            "display": {
+                "x": 416,
+                "y": 64
+            },
+            "parameters": {
+                "target": "G_Target",
+                "skill": "G_Skill"
+            },
+            "properties": {
+                "target": "目标",
+                "skill": "技能"
+            }
+        },
+        "af8b4ce7-bba1-4e5f-afbb-9edf71fcb9d5": {
+            "id": "af8b4ce7-bba1-4e5f-afbb-9edf71fcb9d5",
+            "name": "IsTargetAlive",
+            "title": "IsTargetAlive",
+            "description": "目标是否存活",
+            "display": {
+                "x": 416,
+                "y": -64
+            },
+            "parameters": {
+                "target": "G_Target"
+            },
+            "properties": {
+                "target": "目标"
+            }
+        },
+        "84acc997-c11b-466b-9991-503060ea2155": {
+            "id": "84acc997-c11b-466b-9991-503060ea2155",
+            "name": "GlobalValue",
+            "title": "GlobalValue",
+            "description": "全局变量",
+            "display": {
+                "x": -208,
+                "y": 0
+            },
+            "parameters": {
+                "G_Target": 1,
+                "G_Skill": 101
+            },
+            "properties": {},
+            "child": "0b53992a-f766-47e9-93ac-9b80457aea63"
+        },
+        "0b53992a-f766-47e9-93ac-9b80457aea63": {
+            "id": "0b53992a-f766-47e9-93ac-9b80457aea63",
+            "name": "RepeatUntilFailure",
+            "title": "RepeatUntilFailure",
+            "description": "重复执行直到子节点返回失败",
+            "display": {
+                "x": 0,
+                "y": 0
+            },
+            "parameters": {
+                "maxLoop": -1
+            },
+            "properties": {
+                "maxLoop": "最大重复次数，-1表示无限"
+            },
+            "child": "188874f5-4441-496c-8f3f-6734186e7408"
+        },
+        "188874f5-4441-496c-8f3f-6734186e7408": {
+            "id": "188874f5-4441-496c-8f3f-6734186e7408",
+            "name": "Sequence",
+            "title": "Sequence",
+            "description": "顺序节点",
+            "display": {
+                "x": 208,
+                "y": 0
+            },
+            "parameters": {},
+            "properties": {},
+            "children": [
+                "af8b4ce7-bba1-4e5f-afbb-9edf71fcb9d5",
+                "2945bb0a-db68-4589-8273-1cc8f8dff845",
+                "299b246a-a4fa-4f7f-8c5f-e6d84bb885be"
+            ]
+        },
+        "2945bb0a-db68-4589-8273-1cc8f8dff845": {
+            "id": "2945bb0a-db68-4589-8273-1cc8f8dff845",
+            "name": "MoveToTarget",
+            "title": "MoveToTarget",
+            "description": "移动到目标所在位置",
+            "display": {
+                "x": 416,
+                "y": 0
+            },
+            "parameters": {
+                "target": "G_Target",
+                "distance": 1,
+                "speed": "",
+                "maxTime": "",
+                "minTime": "",
+                "isFar": "",
+                "isLook": ""
+            },
+            "properties": {
+                "target": "",
+                "distance": "",
+                "speed": "",
+                "maxTime": "",
+                "minTime": "",
+                "isFar": "",
+                "isLook": ""
+            }
+        }
+    },
+    "g_value": {
+        "parameters": {
+            "G_Target": 1,
+            "G_Skill": 101
+        },
+        "id": "GlobalValue",
+        "name": "GlobalValue",
+        "title": "GlobalValue",
+        "description": "全局变量"
+    },
+    "custom_nodes": []
+}
