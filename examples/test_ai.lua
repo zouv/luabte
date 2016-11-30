@@ -37,7 +37,7 @@ function btTick()
     bt:tick(tick)
 end
 
--- start test
+-- begin test
 require("examples.test_ai_node_logic")  -- define ai node logic
 Debug = true
 local f = io.open("examples/ai.json", "r") -- ai data
@@ -46,4 +46,3 @@ btInit(strJson)
 for i=100,1,-1 do -- behavior tree loop
     btTick()
 end
-
